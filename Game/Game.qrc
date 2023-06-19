@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="Game">
+    <file>image/A0.png</file>
+    <file>C:/Users/肖璇/Desktop/background.png</file>
+  </qresource>
+</RCC>
