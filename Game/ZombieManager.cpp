@@ -43,7 +43,7 @@ void ZombieManager::Update(double time)
 			itr++;
 		else
 		{
-			delete* itr;
+			delete unit;
 			itr = bull1s.erase(itr);
 		}
 	}

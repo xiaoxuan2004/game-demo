@@ -49,6 +49,7 @@ struct GameInfo
 	int windowWidth;
 	int windowHeight;
 	GameState gameState;
+	int gameTime;
 };
 
 class Interface

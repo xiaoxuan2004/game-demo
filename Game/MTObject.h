@@ -16,7 +16,10 @@ public:
 	virtual ~MTObject() {}; //有多态函数的类，析构函数的默认状态
 
 	void	SetPos(const Vec2d& pt) { center = pt; }
-	void	SetVelocity(const Vec2d& v) { velocity = v; }
+	void	SetVelocity(const Vec2d& v) 
+	{
+		velocity = v; 
+	}
 	virtual void	Render(QPainter&) {}
 	virtual void	Update(double time) 
 	{

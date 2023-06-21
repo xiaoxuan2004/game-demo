@@ -20,8 +20,23 @@ Game::~Game()
 
 void Game::paintEvent(QPaintEvent*)
 {
+
+	double dTime = 0.030;
+	static bool firstTime = true;
+	if (firstTime)
+	{
+		firstTime = false;
+		time.Reset();
+		//interface.userInit();
+	}
+	else
+	{
+		dTime = time.GetDelataTime();
+	}
+
+
 	QPainter painter(this);
-	interface.UserUpdate();
+	interface.UserUpdate(dTime);
 	interface.UserRender(painter);
 }
 

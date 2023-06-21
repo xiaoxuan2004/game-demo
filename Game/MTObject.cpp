@@ -2,6 +2,8 @@
 
 MTObject::MTObject()
 {
+	velocity.x = 0;
+	velocity.y = 0 ;
 }
 
 //Åö×²¼ì²â

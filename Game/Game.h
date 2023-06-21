@@ -6,6 +6,7 @@
 #include <QtCore>
 #include <time.h>
 #include "Interface.h"
+#include "MTTime.h"
 
 class Game : public QMainWindow
 {
@@ -27,4 +28,5 @@ private:
 	QSize	window_size;
 
 	Interface interface;
+	MTTime		time;
 };

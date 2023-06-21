@@ -212,12 +212,6 @@ Interface::Interface()//初始设置游戏状态为正在进行
 Interface::~Interface()//对Gameunit的List进行内存清理
 {
 	//清除子弹
-	weaponManager.~WeaponManager();
-
-	//清除僵尸
-	zombieManager.~ZombieManager();
-
-	shooterManager.~ShooterManager();
 	
 }
 
@@ -234,11 +228,7 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 	Vec2d pos_m(x + 50, y - 25);
 	Vec2d pos_enemy(600 - x, rand() % y);
 	Vec2d velocity_static(0.0, 0.0);//设置行进速度，
-	Vec2d velocity(speed * cos(angle), speed * sin(angle));
-	Vec2d velocity_enemy(-speed * cos(angle), -speed * sin(angle));
-	Vec2d velocity_enemy1(-speed1 * cos(angle), -speed1 * sin(angle));
-	Vec2d velocity_enemy2(-speed2 * cos(angle), -speed2 * sin(angle));
-	Vec2d velocity_enemy3(-speed3 * cos(angle), -speed3 * sin(angle));
+	Vec2d velocity(-0.01, 0.0);
 	int type = rand() % 4;
 
 
@@ -250,19 +240,20 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 	unit->Init("A", "png", 2);
 
 	shooterManager.InsertShooter(unit);
-	CCircle* bullet = new CCircle();
-	
-	bullet->SetPos(pos_m);
-	bullet->SetVelocity(velocity);
-	bullet->Init("F", "png", 1);
-	weaponManager.InsertBullet(bullet);
+// 	CCircle* bullet = new CCircle();
+// 	
+// 	bullet->SetPos(pos_m);
+// 	bullet->SetVelocity(velocity);
+// 	bullet->Init("F", "png", 1);
+// 	weaponManager.InsertBullet(bullet);
 	//产生子弹的同时随机产生僵尸,这里只设置每个豌豆射手发射一颗子弹，可以继续用fire优化
+	type = 3;
 	if (type == 0)
 
 	{
 
 		Bull1* bu = new Bull1();
-		bu->SetVelocity(velocity_enemy);
+		bu->SetVelocity(velocity);
 		bu->SetPos(pos_enemy);
 		bu->Init("B", "png", 2);
 		zombieManager.InsertZombie(bu);
@@ -270,7 +261,7 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 	if (type == 1)
 	{
 		Bull1* bu = new Bull2();
-		bu->SetVelocity(velocity_enemy1);
+		bu->SetVelocity(velocity);
 		bu->SetPos(pos_enemy);
 		bu->Init("C", "png", 2);
 		/*getZombieManager().insertZombie(bu);*/
@@ -279,7 +270,7 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 	if (type == 2)
 	{
 		Bull1* bu = new Bull3();
-		bu->SetVelocity(velocity_enemy2);
+		bu->SetVelocity(velocity);
 		bu->SetPos(pos_enemy);
 		bu->Init("D", "png", 2);
 		zombieManager.InsertZombie(bu);
@@ -287,7 +278,7 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 	if (type == 3)
 	{
 		Bull1* bu = new Bull3();
-		bu->SetVelocity(velocity_enemy3);
+		bu->SetVelocity(velocity);
 		bu->SetPos(pos_enemy);
 		bu->Init("E", "png", 2);
 		zombieManager.InsertZombie(bu);
@@ -331,6 +322,7 @@ void Interface::UserRender(QPainter& painter)
 
 void Interface::UserUpdate(double time)
 {
+	Interface::getGameInfo().gameTime += time;
 
 	/*for (auto itr = circles.begin(); itr != circles.end(); itr++)
 	{
