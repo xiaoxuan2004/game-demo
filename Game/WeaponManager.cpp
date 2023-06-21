@@ -46,9 +46,9 @@ void WeaponManager::Update(double time)
 		else
 		{
 
-			
-			itr = circles.erase(itr);
 			delete unit;
+			itr = circles.erase(itr);
+			
 		}
 
 	}

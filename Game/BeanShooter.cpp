@@ -28,7 +28,6 @@ void BeanShooter::Update(int time)
  		auto& weaponManager = Interface::getWeaponManager();
  
  		CCircle* bean = new CCircle();
- 		weaponManager.InsertBullet(bean);
  		Vec2d pos_m(center.x + 50, center.y - 25);
  		bean->SetPos(pos_m);
 		Vec2d velocity(0.01, 0.0);
