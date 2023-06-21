@@ -240,6 +240,7 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 	unit->Init("A", "png", 2);
 
 	shooterManager.InsertShooter(unit);
+
 // 	CCircle* bullet = new CCircle();
 // 	
 // 	bullet->SetPos(pos_m);

@@ -111,6 +111,7 @@
     <ClInclude Include="GameUnit.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="MTObject.h" />
+    <ClInclude Include="MTTime.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="ShooterManager.h" />
     <ClInclude Include="Sprite.h" />

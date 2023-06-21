@@ -123,5 +123,8 @@
     <ClInclude Include="ShooterManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MTTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
