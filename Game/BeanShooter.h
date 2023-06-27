@@ -6,11 +6,11 @@ class BeanShooter :
     public GameUnit
 {
 public:
-    void fire();//这里我用Interface的头文件出现了重定义？还未解决
+    //void fire();//这里我用Interface的头文件出现了重定义？还未解决
     virtual void Limit_life(const GameUnit& unit);
     void Update(int time);
 
-    int  totalTime;
+    int  totalTime;//记录游戏时间
 };
 
 

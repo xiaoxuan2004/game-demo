@@ -226,12 +226,10 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 	double angle = 0.0;
 	Vec2d pos(x, y);//设置坐标，行进路线
 	Vec2d pos_m(x + 50, y - 25);
-	Vec2d pos_enemy(600 - x, rand() % y);
+	Vec2d pos_enemy(600 - x, (rand() % y/2+y/2));
 	Vec2d velocity_static(0.0, 0.0);//设置行进速度，
 	Vec2d velocity(-0.01, 0.0);
-	int type = rand() % 4;
-
-
+	int type = rand() % 10;
 
 	BeanShooter* unit = new BeanShooter();
 
@@ -246,10 +244,9 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 // 	bullet->SetPos(pos_m);
 // 	bullet->SetVelocity(velocity);
 // 	bullet->Init("F", "png", 1);
-// 	weaponManager.InsertBullet(bullet);
+// 	weaponManager.InsertBullet(bullet);//放入到fire函数中，进而放入Update使得游戏持续更新。
 	//产生子弹的同时随机产生僵尸,这里只设置每个豌豆射手发射一颗子弹，可以继续用fire优化
-	type = 3;
-	if (type == 0)
+	if (type==0|| type == 1 || type == 2 || type == 3 )
 
 	{
 
@@ -259,7 +256,7 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 		bu->Init("B", "png", 2);
 		zombieManager.InsertZombie(bu);
 	}
-	if (type == 1)
+	if (type == 4|| type == 5)
 	{
 		Bull1* bu = new Bull2();
 		bu->SetVelocity(velocity);
@@ -268,7 +265,7 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 		/*getZombieManager().insertZombie(bu);*/
 		zombieManager.InsertZombie(bu);
 	}
-	if (type == 2)
+	if (type == 6|| type == 7 || type == 8 )
 	{
 		Bull1* bu = new Bull3();
 		bu->SetVelocity(velocity);
@@ -276,7 +273,7 @@ bool Interface::UserWndProc(int msg_type, int x, int y)//鼠标点击创建对�
 		bu->Init("D", "png", 2);
 		zombieManager.InsertZombie(bu);
 	}
-	if (type == 3)
+	if (type == 9)
 	{
 		Bull1* bu = new Bull3();
 		bu->SetVelocity(velocity);
@@ -323,14 +320,10 @@ void Interface::UserRender(QPainter& painter)
 
 void Interface::UserUpdate(double time)
 {
+	
 	Interface::getGameInfo().gameTime += time;
-
-	/*for (auto itr = circles.begin(); itr != circles.end(); itr++)
-	{
-		CCircle* unit = *itr;
-		unit->Update(30);
-		unit->CheckPosition(width, height);
-	}*/
+	
+	if (gameInfo.gameState == Game_Fail)return;//更新游戏状态
 	shooterManager.Update(time);
 
 	zombieManager.Update(time);

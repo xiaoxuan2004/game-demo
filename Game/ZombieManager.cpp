@@ -26,12 +26,12 @@ void ZombieManager::Update(double time)
 	{
 		auto& unit = (*itr);
 		unit->Update(time);
-		/*if (unit->win())
+		if (unit->Zombiewin())
 		{
 			Interface::getGameInfo().gameState = Game_Fail;
 			break;
-		}*/
-		//检测是否胜利
+		}
+		/*检测是否胜利*/
 	}
 	if (Interface::getGameInfo().gameState == Game_Fail)
 		return;

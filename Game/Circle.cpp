@@ -16,14 +16,14 @@ void CCircle::Update(int time)
 }
 
 //检查是否到达边界，到达后将速度分量处理成反弹效果
-void CCircle::CheckPosition(int width, int height)
-{
-	/*GameInfo& info = Interface::getGameInfo();
-	if (center.x - width / 2 > info.windowWidth)
-	{
-		life = 0;
-	}*/
-}
+//void CCircle::CheckPosition(int width, int height)
+//{
+//	/*GameInfo& info = Interface::getGameInfo();
+//	if (center.x - width / 2 > info.windowWidth)
+//	{
+//		life = 0;
+//	}*/
+//}
 
 //void CCircle::Render(QPainter& painter)
 //{

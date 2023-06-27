@@ -23,7 +23,7 @@ void BeanShooter::Update(int time)
 {
 	totalTime += time;
 
-	if (totalTime > 5000)
+	if (totalTime > 2000)
 	{
  		auto& weaponManager = Interface::getWeaponManager();
  
@@ -35,8 +35,8 @@ void BeanShooter::Update(int time)
 		bean->Init("F", "png", 1);
  		weaponManager.InsertBullet(bean);
 
-		totalTime = 0;
-	}
+		totalTime = -3000;
+	}//计时器计算单位均为Ms
 	
 
 

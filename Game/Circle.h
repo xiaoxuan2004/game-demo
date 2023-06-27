@@ -12,7 +12,7 @@ public:
 	~CCircle(void);
 public:
 	void	Update(int time);
-	void	CheckPosition(int width, int height); //检查是否到达边界
+	
 private:
 	/*int			radius;*/
 };

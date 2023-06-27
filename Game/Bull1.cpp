@@ -10,3 +10,9 @@ void Bull1::Limit_life(const GameUnit& unit)
 	else
 		return;
 }
+bool Bull1::Zombiewin()const
+{
+	if (center.x - width / 2 <= 0)
+		return true;
+	return false;
+}
